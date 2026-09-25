@@ -169,28 +169,32 @@ svg { display: block; }
 .platform-actions {
   width: min(920px, calc(100vw - 40px));
   display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   gap: 8px;
   margin-top: 50px;
 }
 
+.platform-row {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 8px;
+}
+
 .platform-button {
-  width: auto;
+  width: 146px;
   max-width: 146px;
   min-width: 0;
   min-height: 44px;
   padding: 0 12px;
-
   flex: 1 1 0;
-
   border-radius: var(--radius-pill);
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-
   font-size: 11px;
   font-weight: 500;
   color: rgba(255,255,255,.82);
@@ -221,6 +225,7 @@ svg { display: block; }
   stroke-linejoin: round;
 }
 .platform-button .fill-dot { fill: currentColor; stroke: none; }
+.platform-button .brand-fill { fill: currentColor; stroke: none; }
 
 .site-footer {
   width: min(100%, 650px);
@@ -473,7 +478,13 @@ linear-gradient(
 }
 .album-info h3 { margin: 0; font-size: 14px; font-weight: 500; }
 .album-info time { font-size: 11px; color: rgba(255,255,255,.48); }
-.album-links { display: flex; gap: 7px; }
+.album-links {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 7px;
+  max-width: 100%;
+}
 .album-links a {
   width: 36px;
   height: 36px;
@@ -488,6 +499,7 @@ linear-gradient(
 .album-links a:hover,
 .album-links a:focus-visible { background: rgba(255,255,255,.13); color: #fff; transform: translateY(-1px); }
 .album-links svg { width: 16px; height: 16px; }
+.album-links svg.brand-fill { fill: currentColor; stroke: none; }
 
 .gallery-grid { columns: 3 220px; column-gap: 14px; }
 .gallery-tile {
@@ -640,6 +652,15 @@ body.modal-open { overflow: hidden; }
 }
 
 
+
+@media (max-width: 780px) and (min-width: 561px) {
+  .platform-button {
+    padding-inline: 8px;
+    gap: 6px;
+    font-size: 10px;
+  }
+}
+
 @media (max-width: 560px) {
 
   .site-shell {
@@ -655,27 +676,31 @@ body.modal-open { overflow: hidden; }
 
   .platform-actions {
     width: 100%;
-    flex-wrap: nowrap;
+    gap: 8px;
+  }
+
+  .platform-row {
+    width: 100%;
     gap: 6px;
   }
 
-.platform-button {
-  width: 42px;
-  height: 42px;
-  min-height: 42px;
-  padding: 0;
-  justify-content: center;
-  flex: 0 0 42px;
-}
+  .platform-button {
+    width: 42px;
+    height: 42px;
+    min-height: 42px;
+    padding: 0;
+    justify-content: center;
+    flex: 0 0 42px;
+  }
 
-.platform-button span {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-}
+  .platform-button span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
 
   .contact-card {
     padding: 13px 12px;
@@ -695,6 +720,20 @@ body.modal-open { overflow: hidden; }
 
   .discography-grid {
     grid-template-columns: 1fr;
+  }
+
+  .album-links {
+    gap: 6px;
+  }
+
+  .album-links a {
+    width: 34px;
+    height: 34px;
+  }
+
+  .album-links svg {
+    width: 15px;
+    height: 15px;
   }
 
   .gallery-grid {

@@ -655,11 +655,9 @@ body.modal-open { overflow: hidden; }
 
   .platform-actions {
     width: 100%;
-  .platform-actions {
-  width: 100%;
-  flex-wrap: nowrap;
-  gap: 6px;
-}
+    flex-wrap: nowrap;
+    gap: 6px;
+  }
 
 .platform-button {
   width: 42px;
@@ -976,4 +974,5 @@ body.modal-open { overflow: hidden; }
   .contact-details p {
     font-size: 13px;
   }
+
 }
